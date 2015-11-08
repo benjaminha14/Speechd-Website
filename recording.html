@@ -59,9 +59,10 @@
           var soundFile = object.get('sound')
           var answer = soundFile
           alert(topic)
-           alert(soundFile)
-           alert(soundFile.audio)
-           document.getElementById("a1").src = answer;
+           var finalURL = soundFile.url() + ".m4a"
+           alert(finalURL)
+           
+           document.getElementById("a1").src = finalURL;
         },
         error: function(error) {
           alert("Error: " + error.code + " " + error.message);
@@ -139,10 +140,10 @@
 
             <div class="col-md-12">
                 <ol>
-                    <li id = "av1"><audio controls>
-                      <source id = "a1" src="" type="audio/m4a">
-                      
+                    <li id = "av1">
 
+                    <audio controls>
+                      <source id = "a1" src="" type="audio/mpeg">
                     </audio>
                     </li>
                     <li id = "av2">Recording 2</li>
