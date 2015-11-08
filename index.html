@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>My Parse App</title>
+    <meta name="description" content="My Parse App">
+    <meta name="viewport" content="width=device-width">
+    <!-- <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div>
+  
+    </div>
+  </div>
+</nav>
+<div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form class="form" id="myForm">
+                    
+                        <label for="text">Username:</label>
+                        <input type="text" id="uname" name="uname">
+                    
+                    
+                        <br> Password:
+                        <input type="text" id="pass" name="pass">
+                   
+                    
+                        <br> Email:
+                        <input type="text" id="email" name="email">
+                   
+                    <input type="button" onclick="signup()" value="Sign Up">
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        Parse.initialize("sYcPBvcNkUHAy0s14tS09rOzwUeaG6Ut1H7MU2aj", "VehUVY1xPeUsdOqsuIEPpTMMwDvZUedwe6qRoRZX");
+
+        function signup() {
+
+            var username = document.getElementById("uname").value;
+            var password = document.getElementById("pass").value;
+            var email = document.getElementById("email").value;
+            var user = new Parse.User();
+            user.set("username", username)
+            user.set("password", password)
+            user.set("email", email)
+            user.signUp(null, {
+                success: function(user) {
+                    user.set("btval", 1)
+                    user.save(null, {
+                        success: function(user) {
+                            window.location = "recording.html"
+                        },
+                        error: function(user, error) {}
+                    })
+
+                },
+                error: function(user, error) {
+                    alert("Error: " + error.code + " " + error.message);
+                }
+            })
+
+        }
+    </script>
+
+
+</body>
+
+</html>
