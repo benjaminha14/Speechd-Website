@@ -9,7 +9,7 @@ light blue - 00ccff
 
 body {
    
-    background-color: #3399ff ;
+    background-color: #3399ff !important;
     color: black;
 }
 
@@ -22,6 +22,9 @@ footer {
 }
 form{
     padding-top: 50px;
+}
+.main{
+    background-color: #3399ff ;
 }
 
 

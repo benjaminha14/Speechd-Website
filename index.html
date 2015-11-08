@@ -7,10 +7,10 @@
     <title>My Parse App</title>
     <meta name="description" content="My Parse App">
     <meta name="viewport" content="width=device-width">
-    
+   
   <link rel="stylesheet" href="css/index.css"> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 </head>
@@ -19,27 +19,28 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Speechd</a>
+      <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <div>
   
     </div>
   </div>
 </nav>
+<div class = "main">
 <div class="container">
         <div class="row">
             <div class="col-md-4"></div>
-            
             <div class="col-md-4">
                 <div class = "jumbotron">
                 <form class="form" id="myForm">
-                    
+                        <label for="text">Signup</label>
+                    <br>
                         <label for="text">Username:</label>
                         <input type="text" id="uname" name="uname">
                     
                     
                         <br> Password:
-                        <input type="text" id="pass" name="pass">
+                        <input type="password" id="pass" name="pass">
                    
                     
                         <br> Email:
@@ -47,12 +48,41 @@
                    
                     <input type="button" onclick="signup()" value="Sign Up">
                 </form>
-                     </div>
+                    </div>
             </div>
-               
             <div class="col-md-4"></div>
         </div>
     </div>
+
+
+<hr>
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class = "jumbotron">
+                <form class="form" id="myForm">
+                        <label for="text">Login</label>
+                    <br>
+                        <label for="text">Username:</label>
+                        <input type="text" id="usern" name="uname">
+                    
+                    
+                        <br> Password:
+                        <input type="password" id="passw" name="pass">
+                   
+                    
+                        
+                   
+                    <input type="button" onclick="logIn()" value="Log In">
+                </form>
+                    </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
     <script type="text/javascript">
         Parse.initialize("sYcPBvcNkUHAy0s14tS09rOzwUeaG6Ut1H7MU2aj", "VehUVY1xPeUsdOqsuIEPpTMMwDvZUedwe6qRoRZX");
 
@@ -82,6 +112,22 @@
             })
 
         }
+
+        function logIn() {
+
+            var usern = document.getElementById("usern").value;
+            var passw = document.getElementById("passw").value;
+
+        Parse.User.logIn(usern, passw, {
+              success: function(user) {
+                window.location = "recording.html";
+              },
+              error: function(user, error) {
+                // The login failed. Check error to see why.
+                alert("error")
+              }
+            });
+    }
     </script>
 
 
