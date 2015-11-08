@@ -8,11 +8,11 @@ light blue - 00ccff
  */
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+   
     background-color: #3399ff ;
     color: black;
 }
-}
+
 
 footer {
     margin: 50px 0;
@@ -20,7 +20,8 @@ footer {
 .navbar{
     background-color:#00ccff !important; 
 }
-.recordingList{
-    background-color: #3399ff ;
+form{
+    padding-top: 50px;
 }
+
 
