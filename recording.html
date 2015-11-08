@@ -24,6 +24,74 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    alert("asdasd")
+        Parse.initialize("sYcPBvcNkUHAy0s14tS09rOzwUeaG6Ut1H7MU2aj", "VehUVY1xPeUsdOqsuIEPpTMMwDvZUedwe6qRoRZX");
+        var top = ""
+        var em = ""
+        var topicFinal = ""
+        var random = ""
+        var emailFinal = ""
+        var currentUser = Parse.User.current();
+        
+    //document.getElementById("name").innerHTML = "Welcome " + user.get('username');
+    
+    Parse.User.current().fetch().then(function (user) {
+        
+    random = user.get('email');
+    ran()
+});
+
+    function ran() {
+        alert(random)
+        
+        var upload = Parse.Object.extend("Upload")
+      var query = new Parse.Query(upload)
+      query.equalTo("user", random);
+      query.find({
+        success: function(results) {
+          var object = results[0]
+          var topic = object.get('topic')
+          var soundFile = object.get('sound')
+          var answer = soundFile
+          alert(topic)
+           alert(soundFile)
+           alert(soundFile.audio)
+           document.getElementById("a1").src = answer;
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
+    }
+
+
+/*
+        currentUser.fetch().then(function (user) {
+      //alert(user.get('btval'))
+        top = user.get('topic');
+        em = user.get('user');
+        alert(top)
+        alert(em)
+        replace();
+});
+    function replace() {
+
+
+      topicFinal = top
+      emailFinal = em
+      getData(em)
+    }
+*/
+
+
+    
+
+    </script>
 
 </head>
 
@@ -71,7 +139,16 @@
 
             <div class="col-md-12">
                 <ol>
-                    <li>Recording 1</li>
+                    <li id = "av1"><audio controls>
+                      <source id = "a1" src="" type="audio/m4a">
+                      
+
+                    </audio>
+                    </li>
+                    <li id = "av2">Recording 2</li>
+                    <li id = "av3">Recording 3</li>
+                    <li id = "av4">Recording 4</li>
+                    <li id = "av5">Recording 5</li>
 
                 </ol>
 
@@ -100,14 +177,7 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script>
-        Parse.initialize("sYcPBvcNkUHAy0s14tS09rOzwUeaG6Ut1H7MU2aj", "VehUVY1xPeUsdOqsuIEPpTMMwDvZUedwe6qRoRZX");
-        var upload = new Parse.upload();
-    </script>
 
 
 </body>
